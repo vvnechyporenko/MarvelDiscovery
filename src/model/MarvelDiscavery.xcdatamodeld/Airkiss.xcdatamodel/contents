@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+    <entity name="Advertisment" representedClassName=".Advertisment" syncable="YES">
+        <attribute name="commentsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="viewsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="advertisement" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="advertisement" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="ChatMessage" representedClassName=".ChatMessage" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="receiver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="sender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName=".Comment" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="advertisement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Advertisment" inverseName="comments" inverseEntity="Advertisment" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName=".Location" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="longtitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <relationship name="advertisement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Advertisment" inverseName="location" inverseEntity="Advertisment" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="location" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instagramLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newMessagesCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="user" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Advertisment" positionX="-54" positionY="54" width="128" height="195"/>
+        <element name="ChatMessage" positionX="-36" positionY="90" width="128" height="105"/>
+        <element name="Comment" positionX="-18" positionY="117" width="128" height="105"/>
+        <element name="Location" positionX="0" positionY="135" width="128" height="105"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="195"/>
+    </elements>
+</model>
