@@ -10,7 +10,6 @@ struct R {
   }
   
   struct file {
-    static var infoPlist: NSURL? { return NSBundle.mainBundle().URLForResource("Info", withExtension: "plist") }
     static var jGProgressHUDResourcesBundle: NSURL? { return NSBundle.mainBundle().URLForResource("JGProgressHUD Resources", withExtension: "bundle") }
   }
   
@@ -19,7 +18,13 @@ struct R {
   }
   
   struct image {
+    static var bgCellTitle: UIImage? { return UIImage(named: "bg-cell-title") }
     static var brandAssets: UIImage? { return UIImage(named: "Brand Assets") }
+    static var icnCellDisclosure: UIImage? { return UIImage(named: "icn-cell-disclosure") }
+    static var icnNavBackWhite: UIImage? { return UIImage(named: "icn-nav-back-white") }
+    static var icnNavCloseWhite: UIImage? { return UIImage(named: "icn-nav-close-white") }
+    static var icnNavMarvel: UIImage? { return UIImage(named: "icn-nav-marvel") }
+    static var icnNavSearch: UIImage? { return UIImage(named: "icn-nav-search") }
   }
   
   struct nib {

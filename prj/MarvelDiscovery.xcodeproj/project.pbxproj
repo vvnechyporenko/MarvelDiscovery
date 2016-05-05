@@ -10,6 +10,17 @@
 		041F0F6C1CD4DE4E0087AC98 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F6B1CD4DE4E0087AC98 /* CharactersListViewController.swift */; };
 		041F0F701CD4DF160087AC98 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F6D1CD4DF160087AC98 /* R.generated.swift */; };
 		041F0F741CD4E34A0087AC98 /* MarvelDiscovery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F721CD4E34A0087AC98 /* MarvelDiscovery.xcdatamodeld */; };
+		04215E9C1CDBF40F0005777D /* NetworkCharactersRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215E9B1CDBF40F0005777D /* NetworkCharactersRequests.swift */; };
+		04215EA81CDBF8BD0005777D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215E9E1CDBF8BD0005777D /* Character.swift */; };
+		04215EAA1CDBF8BD0005777D /* ThumbnailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EA01CDBF8BD0005777D /* ThumbnailImage.swift */; };
+		04215EAC1CDBF8BD0005777D /* ContentSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EA21CDBF8BD0005777D /* ContentSummary.swift */; };
+		04215EAE1CDBF8BD0005777D /* WebURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EA41CDBF8BD0005777D /* WebURL.swift */; };
+		04215EB01CDBF8BD0005777D /* ContentsCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EA61CDBF8BD0005777D /* ContentsCharacter.swift */; };
+		04215EB81CDBF9370005777D /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB31CDBF9370005777D /* Character+CoreDataProperties.swift */; };
+		04215EB91CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB41CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift */; };
+		04215EBA1CDBF9370005777D /* ContentSummary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB51CDBF9370005777D /* ContentSummary+CoreDataProperties.swift */; };
+		04215EBB1CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB61CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift */; };
+		04215EBC1CDBF9370005777D /* WebURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */; };
 		042B83461CCFB9440090550C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B83451CCFB9440090550C /* Constants.swift */; };
 		0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493880E1CB64ECD007460C6 /* EasyTableView.m */; };
 		04C4FA101CA17B71007CAE13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */; };
@@ -111,6 +122,17 @@
 		041F0F6B1CD4DE4E0087AC98 /* CharactersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		041F0F6D1CD4DF160087AC98 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		041F0F731CD4E34A0087AC98 /* RSSSpeaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSSpeaker.xcdatamodel; sourceTree = "<group>"; };
+		04215E9B1CDBF40F0005777D /* NetworkCharactersRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCharactersRequests.swift; sourceTree = "<group>"; };
+		04215E9E1CDBF8BD0005777D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		04215EA01CDBF8BD0005777D /* ThumbnailImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailImage.swift; sourceTree = "<group>"; };
+		04215EA21CDBF8BD0005777D /* ContentSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSummary.swift; sourceTree = "<group>"; };
+		04215EA41CDBF8BD0005777D /* WebURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebURL.swift; sourceTree = "<group>"; };
+		04215EA61CDBF8BD0005777D /* ContentsCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsCharacter.swift; sourceTree = "<group>"; };
+		04215EB31CDBF9370005777D /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04215EB41CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentsCharacter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04215EB51CDBF9370005777D /* ContentSummary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentSummary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04215EB61CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThumbnailImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		042B83451CCFB9440090550C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0493880D1CB64ECD007460C6 /* EasyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTableView.h; sourceTree = "<group>"; };
 		0493880E1CB64ECD007460C6 /* EasyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTableView.m; sourceTree = "<group>"; };
@@ -302,6 +324,18 @@
 			path = characters;
 			sourceTree = "<group>";
 		};
+		04215EB21CDBF9370005777D /* propertiesFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04215EB31CDBF9370005777D /* Character+CoreDataProperties.swift */,
+				04215EB41CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift */,
+				04215EB51CDBF9370005777D /* ContentSummary+CoreDataProperties.swift */,
+				04215EB61CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift */,
+				04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */,
+			);
+			path = propertiesFiles;
+			sourceTree = "<group>";
+		};
 		0493880C1CB64ECD007460C6 /* easytableview */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +412,12 @@
 		04C4F92D1CA17B71007CAE13 /* modelObjects */ = {
 			isa = PBXGroup;
 			children = (
+				04215EB21CDBF9370005777D /* propertiesFiles */,
+				04215E9E1CDBF8BD0005777D /* Character.swift */,
+				04215EA01CDBF8BD0005777D /* ThumbnailImage.swift */,
+				04215EA21CDBF8BD0005777D /* ContentSummary.swift */,
+				04215EA41CDBF8BD0005777D /* WebURL.swift */,
+				04215EA61CDBF8BD0005777D /* ContentsCharacter.swift */,
 			);
 			path = modelObjects;
 			sourceTree = "<group>";
@@ -387,6 +427,7 @@
 			children = (
 				04C4F94D1CA17B71007CAE13 /* NetworkManager.swift */,
 				04C4F9501CA17B71007CAE13 /* Reachability.swift */,
+				04215E9B1CDBF40F0005777D /* NetworkCharactersRequests.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -776,19 +817,23 @@
 				041F0F6C1CD4DE4E0087AC98 /* CharactersListViewController.swift in Sources */,
 				04C4FA6B1CA17B71007CAE13 /* JGProgressHUDSuccessIndicatorView.m in Sources */,
 				04C4FA7E1CA17B71007CAE13 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				04215E9C1CDBF40F0005777D /* NetworkCharactersRequests.swift in Sources */,
 				041F0F741CD4E34A0087AC98 /* MarvelDiscovery.xcdatamodeld in Sources */,
 				04C4FA751CA17B71007CAE13 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				04C4FA661CA17B71007CAE13 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
 				04C4FA8C1CA17B71007CAE13 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				04C4FA8D1CA17B71007CAE13 /* MKAnnotationView+WebCache.m in Sources */,
 				0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */,
+				04215EAC1CDBF8BD0005777D /* ContentSummary.swift in Sources */,
 				04C4FA6F1CA17B71007CAE13 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				04C4FA491CA17B71007CAE13 /* BaseTableView.swift in Sources */,
 				04C4FA631CA17B71007CAE13 /* JGProgressHUDAnimation.m in Sources */,
+				04215EBA1CDBF9370005777D /* ContentSummary+CoreDataProperties.swift in Sources */,
 				04C4FA521CA17B71007CAE13 /* Alamofire.swift in Sources */,
 				04C4FA861CA17B71007CAE13 /* MagicalRecord+ShorthandMethods.m in Sources */,
 				04C4FA3E1CA17B71007CAE13 /* Reachability.swift in Sources */,
 				04C4FA7C1CA17B71007CAE13 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
+				04215EA81CDBF8BD0005777D /* Character.swift in Sources */,
 				04C4FA8B1CA17B71007CAE13 /* NSArray+PureLayout.m in Sources */,
 				04C4FA731CA17B71007CAE13 /* NSString+MagicalDataImport.m in Sources */,
 				04C4FA741CA17B71007CAE13 /* NSManagedObject+MagicalAggregation.m in Sources */,
@@ -815,10 +860,12 @@
 				04C4FA711CA17B71007CAE13 /* NSObject+MagicalDataImport.m in Sources */,
 				04C4FA651CA17B71007CAE13 /* JGProgressHUDFadeAnimation.m in Sources */,
 				04C4FA591CA17B71007CAE13 /* Response.swift in Sources */,
+				04215EB91CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift in Sources */,
 				04C4FA991CA17B71007CAE13 /* UIImage+WebP.m in Sources */,
 				04C4FA9C1CA17B71007CAE13 /* UIView+WebCacheOperation.m in Sources */,
 				04C4FA801CA17B71007CAE13 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				04C4FA821CA17B71007CAE13 /* MagicalRecord+ErrorHandling.m in Sources */,
+				04215EAE1CDBF8BD0005777D /* WebURL.swift in Sources */,
 				04C4FA7F1CA17B71007CAE13 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				041F0F701CD4DF160087AC98 /* R.generated.swift in Sources */,
 				04C4FA531CA17B71007CAE13 /* Download.swift in Sources */,
@@ -842,6 +889,8 @@
 				04C4FA6A1CA17B71007CAE13 /* JGProgressHUDRingIndicatorView.m in Sources */,
 				04C4FA5E1CA17B71007CAE13 /* Upload.swift in Sources */,
 				04C4FA791CA17B71007CAE13 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
+				04215EAA1CDBF8BD0005777D /* ThumbnailImage.swift in Sources */,
+				04215EB01CDBF8BD0005777D /* ContentsCharacter.swift in Sources */,
 				04C4FA4A1CA17B71007CAE13 /* BaseTableViewCell.swift in Sources */,
 				04C4FA4B1CA17B71007CAE13 /* BaseView.swift in Sources */,
 				04C4FA6D1CA17B71007CAE13 /* MagicalImportFunctions.m in Sources */,
@@ -851,15 +900,18 @@
 				04C4FA5B1CA17B71007CAE13 /* Result.swift in Sources */,
 				04C4FA4D1CA17B71007CAE13 /* UIViewControllerExtension.swift in Sources */,
 				04C4FA931CA17B71007CAE13 /* SDWebImageDownloaderOperation.m in Sources */,
+				04215EB81CDBF9370005777D /* Character+CoreDataProperties.swift in Sources */,
 				04C4FA871CA17B71007CAE13 /* MagicalRecordInternal.m in Sources */,
 				04C4FA8F1CA17B71007CAE13 /* SDImageCache.m in Sources */,
 				04C4FA5A1CA17B71007CAE13 /* ResponseSerialization.swift in Sources */,
 				04C4FA781CA17B71007CAE13 /* NSManagedObject+MagicalRequests.m in Sources */,
+				04215EBC1CDBF9370005777D /* WebURL+CoreDataProperties.swift in Sources */,
 				04C4FA571CA17B71007CAE13 /* ParameterEncoding.swift in Sources */,
 				04C4FA451CA17B71007CAE13 /* Extensions.swift in Sources */,
 				04C4FA5F1CA17B71007CAE13 /* Validation.swift in Sources */,
 				04C4FA701CA17B71007CAE13 /* NSNumber+MagicalDataImport.m in Sources */,
 				04C4FA971CA17B71007CAE13 /* UIImage+GIF.m in Sources */,
+				04215EBB1CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift in Sources */,
 				04C4FA901CA17B71007CAE13 /* SDWebImageCompat.m in Sources */,
 				04C4FA511CA17B71007CAE13 /* UIImageExtensions.swift in Sources */,
 				04C4FA721CA17B71007CAE13 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
