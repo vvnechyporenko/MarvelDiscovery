@@ -7,7 +7,7 @@
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="containedLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentsCharacter" inverseName="character" inverseEntity="ContentsCharacter" syncable="YES"/>
         <relationship name="thumbnailImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThumbnailImage" inverseName="character" inverseEntity="ThumbnailImage" syncable="YES"/>
-        <relationship name="webURLs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WebURL" inverseName="charcter" inverseEntity="WebURL" syncable="YES"/>
+        <relationship name="webURLs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WebURL" inverseName="character" inverseEntity="WebURL" syncable="YES"/>
     </entity>
     <entity name="ContentsCharacter" representedClassName=".ContentsCharacter" syncable="YES">
         <attribute name="availableCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -29,9 +29,9 @@
         <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="thumbnailImage" inverseEntity="Character" syncable="YES"/>
     </entity>
     <entity name="WebURL" representedClassName=".WebURL" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="charcter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="webURLs" inverseEntity="Character" syncable="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="webURLs" inverseEntity="Character" syncable="YES"/>
     </entity>
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="150"/>

@@ -59,6 +59,10 @@ extension NSError {
         return NSError(domain: kEnErrorDomain, code: type!.rawValue, userInfo: [NSLocalizedDescriptionKey : errorDescriptionWithType(errorType!)])
     }
     
+    static func defaultError() -> NSError {
+        return errorWithErorType(.UnknownError)
+    }
+    
     static func errorWithErorCode(errorCode : Int?) -> NSError {
         let code = errorCode == nil ? ErrorCodeType.UnknownError.rawValue : errorCode
         return errorWithErorType(ErrorCodeType(rawValue: code!))
@@ -69,7 +73,7 @@ extension NSError {
     }
 
     static func errorDescriptionWithType(type : ErrorCodeType) -> String {
-        var errorDescription = "Извините, но что-то пошло не по правилам.."
+        var errorDescription = "Sorry, but something went wrong".localized()
         
         switch type {
         case .UnknownError  :

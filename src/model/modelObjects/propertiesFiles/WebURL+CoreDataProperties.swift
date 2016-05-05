@@ -15,7 +15,7 @@ import CoreData
 extension WebURL {
 
     @NSManaged var url: String?
-    @NSManaged var name: String?
-    @NSManaged var charcter: Character?
+    @NSManaged var type: String?
+    @NSManaged var character: Character?
 
 }

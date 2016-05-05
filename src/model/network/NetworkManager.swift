@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkManager : AnyObject {
     static let sharedInstance = NetworkManager()
-    private let kServerURL = "developer.marvel.com"
+    private let kServerURL = "developer.marvel.com/v1/public/"
     private let kPrivateKey = "ff1dc4123d5d810f41305b7356ae6f40018e78ef"
     private let kPublicKey = "7316de942dede4504e98dc9dbd7bee5f"
     
