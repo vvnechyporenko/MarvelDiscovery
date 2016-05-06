@@ -72,9 +72,13 @@ class BaseTableView: UITableView {
     
     //set up bottom refresh control after move to superview, to avoid constraints set up errors
     override func didMoveToSuperview() {
-        superview?.insertSubview(bottomActivityIndicator, atIndex: 0)
-        bottomActivityIndicator.autoAlignAxis(.Vertical, toSameAxisOfView: self)
-        bottomActivityIndicator.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 50 - navigationBarHeight())
+        if bottomActivityIndicator.superview == nil {
+            superview?.insertSubview(bottomActivityIndicator, atIndex: 0)
+            if bottomActivityIndicator.superview != nil {
+                bottomActivityIndicator.autoAlignAxis(.Vertical, toSameAxisOfView: self)
+                bottomActivityIndicator.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 50 - navigationBarHeight())
+            }
+        }
     }
     
     @objc private func tableViewTopRefreshControlActivated() {

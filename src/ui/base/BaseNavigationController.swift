@@ -13,14 +13,7 @@ class BaseNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.hidden = false
-        
-//        navigationBar.barTintColor = ENColors.darkBackgroundColor()
-//        navigationBar.translucent = false
-//        navigationBar.backgroundColor = ENColors.darkBackgroundColor()
-//        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
-//            NSFontAttributeName : UIFont.sanFranciscoWithType(.Regular, size: 16)]
     }
     
     override func viewDidAppear(animated: Bool) {

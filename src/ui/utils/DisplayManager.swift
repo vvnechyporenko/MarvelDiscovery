@@ -125,6 +125,10 @@ extension DisplayManager {
         detailsController.character = character
         navigationController.pushViewController(detailsController, animated: true)
     }
+    
+    func showContentSummaryInArray(array : [ContentSummary], forIndex index : Int) {
+        
+    }
 }
 
 // MARK: Web content

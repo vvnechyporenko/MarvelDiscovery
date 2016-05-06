@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		040CF99B1CDC86050092A84E /* CharactersSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF99A1CDC86050092A84E /* CharactersSearchView.swift */; };
 		040CF99D1CDC86E00092A84E /* CharactersTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF99C1CDC86E00092A84E /* CharactersTableViewManager.swift */; };
+		040CF99F1CDCC21D0092A84E /* CharacterDetailsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF99E1CDCC21D0092A84E /* CharacterDetailsTableViewManager.swift */; };
+		040CF9A11CDCC67D0092A84E /* CharacterTextDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF9A01CDCC67D0092A84E /* CharacterTextDetailsTableViewCell.swift */; };
+		040CF9A31CDCC6960092A84E /* CharacterContentsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF9A21CDCC6960092A84E /* CharacterContentsDetailsTableViewCell.swift */; };
+		040CF9A71CDCC7680092A84E /* CharacterImageDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF9A61CDCC7680092A84E /* CharacterImageDetailsTableViewCell.swift */; };
+		040CF9A91CDCCDB00092A84E /* ContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF9A81CDCCDB00092A84E /* ContentsTableViewCell.swift */; };
+		040CF9AD1CDCD0390092A84E /* CharacterContentsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CF9AC1CDCD0390092A84E /* CharacterContentsTableViewManager.swift */; };
 		041F0F6C1CD4DE4E0087AC98 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F6B1CD4DE4E0087AC98 /* CharactersListViewController.swift */; };
 		041F0F701CD4DF160087AC98 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F6D1CD4DF160087AC98 /* R.generated.swift */; };
 		041F0F741CD4E34A0087AC98 /* MarvelDiscovery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041F0F721CD4E34A0087AC98 /* MarvelDiscovery.xcdatamodeld */; };
@@ -128,6 +134,12 @@
 /* Begin PBXFileReference section */
 		040CF99A1CDC86050092A84E /* CharactersSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersSearchView.swift; sourceTree = "<group>"; };
 		040CF99C1CDC86E00092A84E /* CharactersTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersTableViewManager.swift; sourceTree = "<group>"; };
+		040CF99E1CDCC21D0092A84E /* CharacterDetailsTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewManager.swift; sourceTree = "<group>"; };
+		040CF9A01CDCC67D0092A84E /* CharacterTextDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTextDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		040CF9A21CDCC6960092A84E /* CharacterContentsDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterContentsDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		040CF9A61CDCC7680092A84E /* CharacterImageDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterImageDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		040CF9A81CDCCDB00092A84E /* ContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsTableViewCell.swift; sourceTree = "<group>"; };
+		040CF9AC1CDCD0390092A84E /* CharacterContentsTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterContentsTableViewManager.swift; sourceTree = "<group>"; };
 		041F0F691CD4DDE10087AC98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041F0F6B1CD4DE4E0087AC98 /* CharactersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		041F0F6D1CD4DF160087AC98 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -331,6 +343,8 @@
 				04215EC71CDC2D080005777D /* cells */,
 				04215EC31CDC2C060005777D /* CharacterDetailsViewController.swift */,
 				04215EC51CDC2C170005777D /* CharacterDetailsView.swift */,
+				040CF99E1CDCC21D0092A84E /* CharacterDetailsTableViewManager.swift */,
+				040CF9AC1CDCD0390092A84E /* CharacterContentsTableViewManager.swift */,
 			);
 			path = characterDetails;
 			sourceTree = "<group>";
@@ -363,6 +377,10 @@
 			isa = PBXGroup;
 			children = (
 				04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */,
+				040CF9A01CDCC67D0092A84E /* CharacterTextDetailsTableViewCell.swift */,
+				040CF9A21CDCC6960092A84E /* CharacterContentsDetailsTableViewCell.swift */,
+				040CF9A61CDCC7680092A84E /* CharacterImageDetailsTableViewCell.swift */,
+				040CF9A81CDCCDB00092A84E /* ContentsTableViewCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -858,6 +876,7 @@
 				04C4FA8C1CA17B71007CAE13 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				04C4FA8D1CA17B71007CAE13 /* MKAnnotationView+WebCache.m in Sources */,
 				0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */,
+				040CF9A71CDCC7680092A84E /* CharacterImageDetailsTableViewCell.swift in Sources */,
 				04215EAC1CDBF8BD0005777D /* ContentSummary.swift in Sources */,
 				04C4FA6F1CA17B71007CAE13 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				04C4FA491CA17B71007CAE13 /* BaseTableView.swift in Sources */,
@@ -865,6 +884,7 @@
 				04215EBA1CDBF9370005777D /* ContentSummary+CoreDataProperties.swift in Sources */,
 				04C4FA521CA17B71007CAE13 /* Alamofire.swift in Sources */,
 				04C4FA861CA17B71007CAE13 /* MagicalRecord+ShorthandMethods.m in Sources */,
+				040CF9A91CDCCDB00092A84E /* ContentsTableViewCell.swift in Sources */,
 				04C4FA3E1CA17B71007CAE13 /* Reachability.swift in Sources */,
 				04C4FA7C1CA17B71007CAE13 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				04215EA81CDBF8BD0005777D /* Character.swift in Sources */,
@@ -916,6 +936,7 @@
 				04C4FA841CA17B71007CAE13 /* MagicalRecord+Options.m in Sources */,
 				04C4FA151CA17B71007CAE13 /* AppDelegate.swift in Sources */,
 				04C4FA4E1CA17B71007CAE13 /* DisplayManager.swift in Sources */,
+				040CF9A31CDCC6960092A84E /* CharacterContentsDetailsTableViewCell.swift in Sources */,
 				04C4FA5D1CA17B71007CAE13 /* Stream.swift in Sources */,
 				04215EBE1CDBFDB10005777D /* Parser.swift in Sources */,
 				04C4FA9A1CA17B71007CAE13 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -945,10 +966,13 @@
 				04C4FA8F1CA17B71007CAE13 /* SDImageCache.m in Sources */,
 				04C4FA5A1CA17B71007CAE13 /* ResponseSerialization.swift in Sources */,
 				04C4FA781CA17B71007CAE13 /* NSManagedObject+MagicalRequests.m in Sources */,
+				040CF99F1CDCC21D0092A84E /* CharacterDetailsTableViewManager.swift in Sources */,
 				04215EBC1CDBF9370005777D /* WebURL+CoreDataProperties.swift in Sources */,
 				04C4FA571CA17B71007CAE13 /* ParameterEncoding.swift in Sources */,
+				040CF9A11CDCC67D0092A84E /* CharacterTextDetailsTableViewCell.swift in Sources */,
 				04C4FA451CA17B71007CAE13 /* Extensions.swift in Sources */,
 				04C4FA5F1CA17B71007CAE13 /* Validation.swift in Sources */,
+				040CF9AD1CDCD0390092A84E /* CharacterContentsTableViewManager.swift in Sources */,
 				04C4FA701CA17B71007CAE13 /* NSNumber+MagicalDataImport.m in Sources */,
 				04C4FA971CA17B71007CAE13 /* UIImage+GIF.m in Sources */,
 				04215EBB1CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift in Sources */,
@@ -1066,7 +1090,7 @@
 					__DEBUG__,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nominanza.MarvelDiscovery;
@@ -1084,7 +1108,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nominanza.MarvelDiscovery;
 				PRODUCT_NAME = MarvelDiscovery;

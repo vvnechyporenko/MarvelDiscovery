@@ -339,6 +339,7 @@ extension UILabel {
     convenience init(labelText : String?) {
         self.init()
         text = labelText
+        sizeToFit()
     }
 }
 

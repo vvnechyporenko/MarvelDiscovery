@@ -10,11 +10,22 @@ import UIKit
 
 class CharacterDetailsViewController: BaseViewController {
     private let contentView = CharacterDetailsView()
-    var character : Character?
+    private let tableManager = CharacterDetailsTableViewManager()
+    var character : Character? {
+        didSet {
+            tableManager.character = character
+        }
+    }
     
     override func loadView() {
         super.loadView()
-        
         layoutContentView(contentView)
+        contentView.tableView.delegate = tableManager
+        contentView.tableView.dataSource = tableManager
+        
+        //Set up navigation bar
+        navigationController?.navigationBar.makeTransparent()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: R.image.icnNavBackWhite, style: .Plain, target: self, action: #selector(CharacterDetailsViewController.navigateBack))
+        navigationItem.leftBarButtonItem?.tintColor = .whiteColor()
     }
 }

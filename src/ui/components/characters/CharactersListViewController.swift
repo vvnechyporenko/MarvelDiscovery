@@ -27,8 +27,6 @@ class CharactersListViewController: BaseViewController {
         searchView.searchBar.delegate = self
         
         //Set up navigation bar
-        navigationController?.navigationBar.backgroundColor = MDColors.blackColor()
-        navigationController?.navigationBar.setBackgroundImage(MDColors.blackColor().toImage(), forBarMetrics: UIBarMetrics.Default)
         navigationItem.titleView = UIImageView(image: R.image.icnNavMarvel)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icnNavSearch, style: .Plain, target: self, action: #selector(CharactersListViewController.searchButtonTapped(_:)))
         navigationItem.rightBarButtonItem?.tintColor = MDColors.redColor()
@@ -39,6 +37,12 @@ class CharactersListViewController: BaseViewController {
         //Set up data
         contentView.tableView.animateLoading()
         contentView.tableView.datasourceManager?.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(MDColors.blackColor().toImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.translucent = false
     }
     
     deinit {
