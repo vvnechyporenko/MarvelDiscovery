@@ -9,6 +9,7 @@
 #ifndef BridgeHeader_h
 #define BridgeHeader_h
 
+#import <CommonCrypto/CommonCrypto.h>
 #import "JGProgressHUD.h"
 #import "MagicalRecord.h"
 #import "UIImageView+WebCache.h"

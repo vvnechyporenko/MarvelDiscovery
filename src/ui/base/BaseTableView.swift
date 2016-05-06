@@ -1,5 +1,5 @@
 //
-//  BaseTableView.swift
+//  Baseswift
 //  YouBetMe
 //
 //  Created by Slava Nechiporenko on 8/20/15.
@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TableViewRefreshDelegate : class {
-    func tableView(tableView : BaseTableView, asksNewLoadNewPageWithControl refreshControl : UIRefreshControl)
     func tableView(tableView : BaseTableView, asksReloadWithControl refreshControl : UIRefreshControl)
 }
 
@@ -36,14 +35,24 @@ class BaseTableView: UITableView {
         topRefreshControl.addTarget(self, action: #selector(BaseTableView.tableViewTopRefreshControlActivated), forControlEvents: .ValueChanged)
         addSubview(topRefreshControl)
         topRefreshControl.tintColor = .whiteColor()
-    }
         
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        bottomActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        
+        bottomActivityIndicator?.hidden = true
+        bottomActivityIndicator?.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        bottomActivityIndicator!.tintColor = .whiteColor()
+        bottomActivityIndicator?.hidesWhenStopped = true
     }
     
-    @objc private func tableViewBottomRefreshControlActivated() {
-        refreshDelegate?.tableView(self, asksNewLoadNewPageWithControl: topRefreshControl)
+    //set up bottom refresh control after move to superview, to avoid constraints set up errors
+    override func didMoveToSuperview() {
+        superview?.insertSubview(bottomActivityIndicator!, atIndex: 0)
+        bottomActivityIndicator!.autoAlignAxis(.Vertical, toSameAxisOfView: self)
+        bottomActivityIndicator!.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 55)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc private func tableViewTopRefreshControlActivated() {

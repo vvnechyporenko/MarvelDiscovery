@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "EasyTableView.h"
 
-
 @implementation EasyTableView
 
 #pragma mark - Initialization

@@ -98,7 +98,7 @@ class DisplayManager : AnyObject {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    var navigationController = BaseNavigationController(rootViewController: CharactersListViewController())
+    var navigationController = UINavigationController(rootViewController: CharactersListViewController())
     
     var currentViewController : BaseViewController? {
         return navigationController.viewControllers.last as? BaseViewController

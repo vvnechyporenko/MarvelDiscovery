@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkManager : AnyObject {
     static let sharedInstance = NetworkManager()
-    private let kServerURL = "developer.marvel.com/v1/public/"
+    private let kServerURL = "https://gateway.marvel.com/v1/public/" //
     private let kPrivateKey = "ff1dc4123d5d810f41305b7356ae6f40018e78ef"
     private let kPublicKey = "7316de942dede4504e98dc9dbd7bee5f"
     
@@ -43,7 +43,13 @@ extension NetworkManager {
             return
         }
         
-        request(method, path, parameters: params)
+        var params = params == nil ? [String : AnyObject]() : params!
+        
+        params["ts"] = String(Int((NSDate().timeIntervalSince1970)))
+        params["apikey"] = kPublicKey
+        params["hash"] = "\(String(Int((NSDate().timeIntervalSince1970))))\(kPrivateKey)\(kPublicKey)".md5
+        
+        request(method, kServerURL + path, parameters: params)
         .response { (request, responce, data, error) -> Void in
             
             guard let completion = completion else {
@@ -56,7 +62,23 @@ extension NetworkManager {
                 return
             }
             
-            let json = JSON(data: data!)
+//            let responseString = String(data: data!, encoding: NSUTF8StringEncoding)
+//            dbgLog(responseString)
+            
+            guard let data = data else {
+                completion(JSON: nil, error: NSError.defaultError())
+                return
+            }
+            
+            let json = JSON(data: data)
+            if let errorCode = json["code"].int {
+                if errorCode != 200 {
+                    completion(JSON: json, error: NSError.errorWithErorCode(errorCode))
+                }
+                else {
+                    completion(JSON: json["data"], error: nil)
+                }
+            }
             completion(JSON: json, error: nil)
         }
     }

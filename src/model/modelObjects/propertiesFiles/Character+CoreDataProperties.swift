@@ -19,7 +19,7 @@ extension Character {
     @NSManaged var charcterDescription: String?
     @NSManaged var resourceURI: String?
     @NSManaged var webURLs: NSSet?
-    @NSManaged var thumbnailImage: NSManagedObject?
+    @NSManaged var thumbnailImage: ThumbnailImage?
     @NSManaged var containedLists: NSSet?
 
 }

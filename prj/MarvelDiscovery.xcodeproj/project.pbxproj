@@ -22,6 +22,8 @@
 		04215EBB1CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB61CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift */; };
 		04215EBC1CDBF9370005777D /* WebURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */; };
 		04215EBE1CDBFDB10005777D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EBD1CDBFDB10005777D /* Parser.swift */; };
+		04215EC01CDC084E0005777D /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EBF1CDC084E0005777D /* CharactersListView.swift */; };
+		04215EC21CDC0A5D0005777D /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC11CDC0A5D0005777D /* CharacterTableViewCell.swift */; };
 		042B83461CCFB9440090550C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B83451CCFB9440090550C /* Constants.swift */; };
 		0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493880E1CB64ECD007460C6 /* EasyTableView.m */; };
 		04C4FA101CA17B71007CAE13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */; };
@@ -135,6 +137,8 @@
 		04215EB61CDBF9370005777D /* ThumbnailImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThumbnailImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04215EBD1CDBFDB10005777D /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		04215EBF1CDC084E0005777D /* CharactersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
+		04215EC11CDC0A5D0005777D /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		042B83451CCFB9440090550C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0493880D1CB64ECD007460C6 /* EasyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTableView.h; sourceTree = "<group>"; };
 		0493880E1CB64ECD007460C6 /* EasyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTableView.m; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 			isa = PBXGroup;
 			children = (
 				041F0F6B1CD4DE4E0087AC98 /* CharactersListViewController.swift */,
+				04215EBF1CDC084E0005777D /* CharactersListView.swift */,
+				04215EC11CDC0A5D0005777D /* CharacterTableViewCell.swift */,
 			);
 			path = characters;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				04C4FA941CA17B71007CAE13 /* SDWebImageManager.m in Sources */,
 				04C4FA6C1CA17B71007CAE13 /* SwiftyJSON.swift in Sources */,
 				04C4FA8E1CA17B71007CAE13 /* NSData+ImageContentType.m in Sources */,
+				04215EC01CDC084E0005777D /* CharactersListView.swift in Sources */,
 				04C4FA541CA17B71007CAE13 /* Error.swift in Sources */,
 				041F0F6C1CD4DE4E0087AC98 /* CharactersListViewController.swift in Sources */,
 				04C4FA6B1CA17B71007CAE13 /* JGProgressHUDSuccessIndicatorView.m in Sources */,
@@ -895,6 +902,7 @@
 				04C4FA791CA17B71007CAE13 /* NSManagedObjectContext+MagicalChainSave.m in Sources */,
 				04215EAA1CDBF8BD0005777D /* ThumbnailImage.swift in Sources */,
 				04215EB01CDBF8BD0005777D /* ContentsCharacter.swift in Sources */,
+				04215EC21CDC0A5D0005777D /* CharacterTableViewCell.swift in Sources */,
 				04C4FA4A1CA17B71007CAE13 /* BaseTableViewCell.swift in Sources */,
 				04C4FA4B1CA17B71007CAE13 /* BaseView.swift in Sources */,
 				04C4FA6D1CA17B71007CAE13 /* MagicalImportFunctions.m in Sources */,
@@ -1024,9 +1032,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					__DEBUG__,
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nominanza.MarvelDiscovery;
 				PRODUCT_NAME = MarvelDiscovery;
 				PROVISIONING_PROFILE = "";

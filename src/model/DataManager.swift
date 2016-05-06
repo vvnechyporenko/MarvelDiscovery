@@ -10,14 +10,7 @@ import Foundation
 import AVFoundation
 
 func runningInDebugMode() -> Bool {
-    
-    var isDebug = false
-    
-    #if __DEBUG__
-        isDebug = true
-    #endif
-    
-    return isDebug
+    return NSProcessInfo.processInfo().environment["runningDebug"] != nil
 }
 
 class DataManager: AnyObject {

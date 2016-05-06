@@ -14,7 +14,7 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.hidden = true
+        navigationController?.navigationBar.hidden = false
         
 //        navigationBar.barTintColor = ENColors.darkBackgroundColor()
 //        navigationBar.translucent = false

@@ -31,16 +31,6 @@ class BaseViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: kStatusBarTappedNotification, object: nil)
     }

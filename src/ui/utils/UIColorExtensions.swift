@@ -24,7 +24,17 @@ extension UIColor {
 // MARK: Application colors
 
 class MDColors : AnyObject {
-
+    static func blackColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(12, green: 14, blue: 15)
+    }
+    
+    static func charactersListBackgroundColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(40, green: 44, blue: 48)
+    }
+    
+    static func redColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(241, green: 24, blue: 45)
+    }
 }
 
 // MARK: hash

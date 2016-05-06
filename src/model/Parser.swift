@@ -11,8 +11,8 @@ import Foundation
 class Parser: AnyObject {
     static let sharedInstanse = Parser()
     
-    func parseCharactersArrayWithJSON(json : JSON) -> [Character]? {
-        guard let jsonArray = json.array else {
+    func parseCharactersArrayWithJSON(json : JSON?) -> [Character]? {
+        guard let jsonArray = json?.array else {
             return nil
         }
         
