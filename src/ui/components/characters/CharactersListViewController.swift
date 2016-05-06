@@ -10,17 +10,21 @@ import UIKit
 
 class CharactersListViewController: BaseViewController {
     private let contentView = CharactersListView()
-    private var charactersArray = [Character]()
-    private var totalCharactersCount = 0
-    private var isDataLoading = false
+    private let searchView = CharactersSearchView()
     
     override func loadView() {
         //Set up content view
         super.loadView()
         layoutContentView(contentView)
-        contentView.tableView.dataSource = self
-        contentView.tableView.delegate = self
-        contentView.tableView.refreshDelegate = self
+        navigationController?.view.addSubview(searchView)
+        searchView.autoPinEdgesToSuperviewEdges()
+        
+        contentView.tableView.datasourceManager = CharactersTableViewManager()
+        contentView.tableView.datasourceManager?.listType = .List
+        
+        searchView.tableView.datasourceManager = CharactersTableViewManager()
+        searchView.tableView.datasourceManager?.listType = .Search
+        searchView.searchBar.delegate = self
         
         //Set up navigation bar
         navigationController?.navigationBar.backgroundColor = MDColors.blackColor()
@@ -29,105 +33,56 @@ class CharactersListViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.icnNavSearch, style: .Plain, target: self, action: #selector(CharactersListViewController.searchButtonTapped(_:)))
         navigationItem.rightBarButtonItem?.tintColor = MDColors.redColor()
         
+        //Subscribe to keyboard appearance
+        startObservingKeyboardChanges()
+        
         //Set up data
-        contentView.animateLoading()
-        loadCharactersWithFullReload()
-    }
-}
-
-// MARK: Data management
-
-extension CharactersListViewController {
-    private func loadCharactersWithFullReload(fullReload : Bool = true) -> Bool {
-        if (fullReload == false && canLoadMoreCharacters() == false) || isDataLoading == true {
-            contentView.endLoading()
-            return false
-        }
-        
-        isDataLoading = true
-        
-        let offset = fullReload == true ? 0 : charactersArray.count
-        
-        NetworkManager.sharedInstance.getCharactersWithOffset(offset) {[weak self] (characters, totalCount, error) in
-            self?.contentView.endLoading()
-            self?.isDataLoading = false
-            if let error = error {
-                self?.showError(error)
-            }
-            else if let characters = characters {
-                if fullReload == true {
-                    self?.charactersArray = characters
-                    self?.contentView.tableView.reloadData()
-                }
-                else if let oldCharactersCount = self?.charactersArray.count where self?.charactersArray.count > 0 {
-                    self?.charactersArray.appendContentsOf(characters)
-                    var pathsArray = [NSIndexPath]()
-                    for i in oldCharactersCount ... (oldCharactersCount + characters.count)-1 {
-                        pathsArray.append(NSIndexPath(forRow: i, inSection: 0))
-                    }
-                    self?.contentView.tableView.insertRowsAtIndexPaths(pathsArray, withRowAnimation: .Fade)
-                }
-            }
-            
-            if let totalCount = totalCount {
-                self?.totalCharactersCount = totalCount
-            }
-        }
-        
-        return true
+        contentView.tableView.animateLoading()
+        contentView.tableView.datasourceManager?.reloadData()
     }
     
-    private func canLoadMoreCharacters() -> Bool {
-        return totalCharactersCount > charactersArray.count
+    deinit {
+        endObservingKeyboardChanges()
     }
 }
 
-// MARK: Action
+// MARK: Actions
 
 extension CharactersListViewController {
     func searchButtonTapped(button : UIBarButtonItem) {
-        
+        searchView.reverseHiddenState()
     }
 }
 
-// MARK: TableView delegate/datasource
+// MARK: Keyboard observing
 
-extension CharactersListViewController : UITableViewDelegate, UITableViewDataSource, TableViewRefreshDelegate {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return charactersArray.count
+extension CharactersListViewController {
+    override func keyboardWillHide() {
+        searchView.keyboardWillHide()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    override func keyboardWillShowWithSize(keyboardSize: CGSize) {
+        searchView.keyboardWillShowWithSize(keyboardSize)
+    }
+}
+
+// MARK: Search delegate
+
+extension CharactersListViewController : UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.enableCancelButton()
+        searchView.tableView.datasourceManager?.filterString = searchBar.text
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 160
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchView.searchBar.resignFirstResponder()
+        searchBar.enableCancelButton()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CharacterTableViewCell.reuseIdentifier()) as? CharacterTableViewCell
-        if cell == nil {
-            cell = CharacterTableViewCell(style: .Default, reuseIdentifier: CharacterTableViewCell.reuseIdentifier())
-        }
-        
-        cell?.characterImageView.setImageWithUrlPath(charactersArray[indexPath.row].thumbnailImage?.downloadURL)
-        cell?.nameLabel.text = charactersArray[indexPath.row].name
-        
-        return cell!
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if canLoadMoreCharacters() == false || (charactersArray.count - indexPath.row) > 10 || indexPath.row == 0  {
-            return
-        }
-        
-        if loadCharactersWithFullReload(false) == true {
-            contentView.animateBottomLoading()
-        }
-    }
-    
-    func tableView(tableView : BaseTableView, asksReloadWithControl refreshControl : UIRefreshControl) {
-        loadCharactersWithFullReload()
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchView.reverseHiddenState()
+        searchView.tableView.datasourceManager?.filterString = nil
+        searchView.searchBar.resignFirstResponder()
+        searchBar.enableCancelButton()
     }
 }

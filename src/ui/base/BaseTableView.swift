@@ -14,6 +14,13 @@ protocol TableViewRefreshDelegate : class {
 
 class BaseTableView: UITableView {
     
+    var datasourceManager : CharactersTableViewManager? {
+        didSet {
+            dataSource = datasourceManager
+            refreshDelegate = datasourceManager
+            delegate = datasourceManager
+        }
+    }
     var topRefreshControl = UIRefreshControl()
     var bottomActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     weak var refreshDelegate : TableViewRefreshDelegate?
@@ -34,16 +41,33 @@ class BaseTableView: UITableView {
     }
     
     func setUpRefreshControls() {
+        topRefreshControl.tintColor = .whiteColor()
         topRefreshControl.addTarget(self, action: #selector(BaseTableView.tableViewTopRefreshControlActivated), forControlEvents: .ValueChanged)
         addSubview(topRefreshControl)
-        topRefreshControl.tintColor = .whiteColor()
         
         bottomActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        
         bottomActivityIndicator.hidden = true
         bottomActivityIndicator.transform = CGAffineTransformMakeScale(0.8, 0.8)
         bottomActivityIndicator.tintColor = .whiteColor()
         bottomActivityIndicator.hidesWhenStopped = true
+    }
+    
+    func animateLoading() {
+        contentOffset = CGPoint(x: 0, y: -topRefreshControl.frame.size.height)
+        topRefreshControl.beginRefreshing()
+    }
+    
+    func animateBottomLoading() {
+        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: topRefreshControl.frame.size.height, right: 0)
+        bottomActivityIndicator.hidden = false
+        bottomActivityIndicator.startAnimating()
+    }
+    
+    func endLoading() {
+        topRefreshControl.endRefreshing()
+        bottomActivityIndicator.stopAnimating()
+        bottomActivityIndicator.hidden = true
+        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     //set up bottom refresh control after move to superview, to avoid constraints set up errors
@@ -53,11 +77,11 @@ class BaseTableView: UITableView {
         bottomActivityIndicator.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 50 - navigationBarHeight())
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     @objc private func tableViewTopRefreshControlActivated() {
         refreshDelegate?.tableView(self, asksReloadWithControl: topRefreshControl)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -35,6 +35,14 @@ class MDColors : AnyObject {
     static func redColor() -> UIColor {
         return UIColor.normalizedColorWithRed(241, green: 24, blue: 45)
     }
+    
+    static func searchCellBackgroundColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(60, green: 63, blue: 67)
+    }
+    
+    static func cellSeparatorColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(71, green: 72, blue: 73)
+    }
 }
 
 // MARK: hash

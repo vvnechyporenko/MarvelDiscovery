@@ -117,6 +117,16 @@ class DisplayManager : AnyObject {
     }
 }
 
+// MARK: Display content
+
+extension DisplayManager {
+    func showCharacterDetailsWithCharacter(character : Character) {
+        let detailsController = CharacterDetailsViewController()
+        detailsController.character = character
+        navigationController.pushViewController(detailsController, animated: true)
+    }
+}
+
 // MARK: Web content
 
 extension DisplayManager {

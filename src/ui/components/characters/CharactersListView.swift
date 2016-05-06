@@ -22,21 +22,5 @@ class CharactersListView: BaseView {
         tableView.autoPinEdgesToSuperviewEdges()
     }
     
-    func animateLoading() {
-        tableView.contentOffset = CGPoint(x: 0, y: tableView.topRefreshControl.frame.size.height)
-        tableView.topRefreshControl.beginRefreshing()
-    }
-    
-    func animateBottomLoading() {
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableView.topRefreshControl.frame.size.height, right: 0)
-        tableView.bottomActivityIndicator.hidden = false
-        tableView.bottomActivityIndicator.startAnimating()
-    }
-    
-    func endLoading() {
-        tableView.topRefreshControl.endRefreshing()
-        tableView.bottomActivityIndicator.stopAnimating()
-        tableView.bottomActivityIndicator.hidden = true
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+
 }

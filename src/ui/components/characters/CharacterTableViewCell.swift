@@ -37,3 +37,25 @@ class CharacterTableViewCell: BaseTableViewCell {
         nameHolderView.autoSetDimension(.Width, toSize: screenWidth() - 60, relation: .LessThanOrEqual)
     }
 }
+
+class CharacterSearchTableViewCell : CharacterTableViewCell {
+    override func setUpDefaults() {
+        super.setUpDefaults()
+        backgroundColor = MDColors.searchCellBackgroundColor()
+        
+        nameHolderView.image = nil
+        
+        nameLabel.font = UIFont.systemFontOfSize(18)
+        nameLabel.textAlignment = .Left
+        nameLabel.textColor = .whiteColor()
+    }
+    
+    override func setUpConstraints() {
+        characterImageView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Right)
+        characterImageView.autoMatchDimension(.Width, toDimension: .Height, ofView: characterImageView)
+        nameLabel.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+        nameHolderView.autoAlignAxisToSuperviewAxis(.Horizontal)
+        nameHolderView.autoPinEdge(.Left, toEdge: .Right, ofView: characterImageView)
+        nameHolderView.autoPinEdgeToSuperviewEdge(.Right)
+    }
+}

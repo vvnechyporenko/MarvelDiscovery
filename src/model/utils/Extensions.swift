@@ -511,7 +511,28 @@ extension UIScrollView {
     }
 }
 
-// MD5
+// MARK: UISearchBar
+
+extension UISearchBar {
+    func enableCancelButton() {
+        for subview in subviews {
+            if let button = subview as? UIButton {
+                button.enabled = true
+                return
+            }
+            else {
+                for subview in subview.subviews {
+                    if let button = subview as? UIButton {
+                        button.enabled = true
+                        return
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: MD5
 
 extension String  {
     var md5: String {

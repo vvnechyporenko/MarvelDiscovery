@@ -29,7 +29,7 @@ class BaseTableViewCell: UITableViewCell {
     
     private func baseSetUp() {
         backgroundColor = UIColor.clearColor()
-        
+        clipsToBounds = true
         selectionStyle = .None
         
         setUpContainerView()
