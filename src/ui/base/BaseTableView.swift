@@ -15,7 +15,7 @@ protocol TableViewRefreshDelegate : class {
 class BaseTableView: UITableView {
     
     var topRefreshControl = UIRefreshControl()
-    var bottomActivityIndicator : UIActivityIndicatorView?
+    var bottomActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     weak var refreshDelegate : TableViewRefreshDelegate?
     
     init() {
@@ -31,24 +31,26 @@ class BaseTableView: UITableView {
     func baseSetUp() {
         backgroundColor = UIColor.clearColor()
         separatorColor = UIColor.clearColor()
-        
+    }
+    
+    func setUpRefreshControls() {
         topRefreshControl.addTarget(self, action: #selector(BaseTableView.tableViewTopRefreshControlActivated), forControlEvents: .ValueChanged)
         addSubview(topRefreshControl)
         topRefreshControl.tintColor = .whiteColor()
         
         bottomActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         
-        bottomActivityIndicator?.hidden = true
-        bottomActivityIndicator?.transform = CGAffineTransformMakeScale(0.8, 0.8)
-        bottomActivityIndicator!.tintColor = .whiteColor()
-        bottomActivityIndicator?.hidesWhenStopped = true
+        bottomActivityIndicator.hidden = true
+        bottomActivityIndicator.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        bottomActivityIndicator.tintColor = .whiteColor()
+        bottomActivityIndicator.hidesWhenStopped = true
     }
     
     //set up bottom refresh control after move to superview, to avoid constraints set up errors
     override func didMoveToSuperview() {
-        superview?.insertSubview(bottomActivityIndicator!, atIndex: 0)
-        bottomActivityIndicator!.autoAlignAxis(.Vertical, toSameAxisOfView: self)
-        bottomActivityIndicator!.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 55)
+        superview?.insertSubview(bottomActivityIndicator, atIndex: 0)
+        bottomActivityIndicator.autoAlignAxis(.Vertical, toSameAxisOfView: self)
+        bottomActivityIndicator.autoPinEdgeToSuperviewEdge(.Top, withInset: screenHeight() - 50 - navigationBarHeight())
     }
     
     required init?(coder aDecoder: NSCoder) {

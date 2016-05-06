@@ -11,6 +11,13 @@ import CoreData
 
 
 class ThumbnailImage: NSManagedObject {
+    
+    var downloadURL : String? {
+        if let url = urlPath, let extens = imageExtension {
+            return url + "." + extens
+        }
+        return nil
+    }
 
 // Insert code here to add functionality to your managed object subclass
 

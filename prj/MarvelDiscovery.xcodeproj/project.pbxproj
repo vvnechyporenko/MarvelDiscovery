@@ -24,6 +24,9 @@
 		04215EBE1CDBFDB10005777D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EBD1CDBFDB10005777D /* Parser.swift */; };
 		04215EC01CDC084E0005777D /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EBF1CDC084E0005777D /* CharactersListView.swift */; };
 		04215EC21CDC0A5D0005777D /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC11CDC0A5D0005777D /* CharacterTableViewCell.swift */; };
+		04215EC41CDC2C060005777D /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC31CDC2C060005777D /* CharacterDetailsViewController.swift */; };
+		04215EC61CDC2C170005777D /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC51CDC2C170005777D /* CharacterDetailsView.swift */; };
+		04215EC91CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */; };
 		042B83461CCFB9440090550C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B83451CCFB9440090550C /* Constants.swift */; };
 		0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493880E1CB64ECD007460C6 /* EasyTableView.m */; };
 		04C4FA101CA17B71007CAE13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */; };
@@ -139,6 +142,9 @@
 		04215EBD1CDBFDB10005777D /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		04215EBF1CDC084E0005777D /* CharactersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
 		04215EC11CDC0A5D0005777D /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		04215EC31CDC2C060005777D /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		04215EC51CDC2C170005777D /* CharacterDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
+		04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		042B83451CCFB9440090550C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0493880D1CB64ECD007460C6 /* EasyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTableView.h; sourceTree = "<group>"; };
 		0493880E1CB64ECD007460C6 /* EasyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTableView.m; sourceTree = "<group>"; };
@@ -318,6 +324,9 @@
 		041F0F671CD4DD960087AC98 /* characterDetails */ = {
 			isa = PBXGroup;
 			children = (
+				04215EC71CDC2D080005777D /* cells */,
+				04215EC31CDC2C060005777D /* CharacterDetailsViewController.swift */,
+				04215EC51CDC2C170005777D /* CharacterDetailsView.swift */,
 			);
 			path = characterDetails;
 			sourceTree = "<group>";
@@ -342,6 +351,14 @@
 				04215EB71CDBF9370005777D /* WebURL+CoreDataProperties.swift */,
 			);
 			path = propertiesFiles;
+			sourceTree = "<group>";
+		};
+		04215EC71CDC2D080005777D /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		0493880C1CB64ECD007460C6 /* easytableview */ = {
@@ -822,6 +839,7 @@
 				04C4FA941CA17B71007CAE13 /* SDWebImageManager.m in Sources */,
 				04C4FA6C1CA17B71007CAE13 /* SwiftyJSON.swift in Sources */,
 				04C4FA8E1CA17B71007CAE13 /* NSData+ImageContentType.m in Sources */,
+				04215EC61CDC2C170005777D /* CharacterDetailsView.swift in Sources */,
 				04215EC01CDC084E0005777D /* CharactersListView.swift in Sources */,
 				04C4FA541CA17B71007CAE13 /* Error.swift in Sources */,
 				041F0F6C1CD4DE4E0087AC98 /* CharactersListViewController.swift in Sources */,
@@ -870,9 +888,11 @@
 				04C4FA711CA17B71007CAE13 /* NSObject+MagicalDataImport.m in Sources */,
 				04C4FA651CA17B71007CAE13 /* JGProgressHUDFadeAnimation.m in Sources */,
 				04C4FA591CA17B71007CAE13 /* Response.swift in Sources */,
+				04215EC41CDC2C060005777D /* CharacterDetailsViewController.swift in Sources */,
 				04215EB91CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift in Sources */,
 				04C4FA991CA17B71007CAE13 /* UIImage+WebP.m in Sources */,
 				04C4FA9C1CA17B71007CAE13 /* UIView+WebCacheOperation.m in Sources */,
+				04215EC91CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift in Sources */,
 				04C4FA801CA17B71007CAE13 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				04C4FA821CA17B71007CAE13 /* MagicalRecord+ErrorHandling.m in Sources */,
 				04215EAE1CDBF8BD0005777D /* WebURL.swift in Sources */,

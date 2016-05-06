@@ -39,7 +39,7 @@ class CharactersListViewController: BaseViewController {
 
 extension CharactersListViewController {
     private func loadCharactersWithFullReload(fullReload : Bool = true) -> Bool {
-        if (!fullReload && !canLoadMoreCharacters()) || isDataLoading {
+        if (fullReload == false && canLoadMoreCharacters() == false) || isDataLoading == true {
             contentView.endLoading()
             return false
         }
@@ -55,8 +55,18 @@ extension CharactersListViewController {
                 self?.showError(error)
             }
             else if let characters = characters {
-                self?.charactersArray = characters
-                self?.contentView.tableView.reloadData()
+                if fullReload == true {
+                    self?.charactersArray = characters
+                    self?.contentView.tableView.reloadData()
+                }
+                else if let oldCharactersCount = self?.charactersArray.count where self?.charactersArray.count > 0 {
+                    self?.charactersArray.appendContentsOf(characters)
+                    var pathsArray = [NSIndexPath]()
+                    for i in oldCharactersCount ... (oldCharactersCount + characters.count)-1 {
+                        pathsArray.append(NSIndexPath(forRow: i, inSection: 0))
+                    }
+                    self?.contentView.tableView.insertRowsAtIndexPaths(pathsArray, withRowAnimation: .Fade)
+                }
             }
             
             if let totalCount = totalCount {
@@ -68,7 +78,7 @@ extension CharactersListViewController {
     }
     
     private func canLoadMoreCharacters() -> Bool {
-        return totalCharactersCount == charactersArray.count
+        return totalCharactersCount > charactersArray.count
     }
 }
 
@@ -101,13 +111,14 @@ extension CharactersListViewController : UITableViewDelegate, UITableViewDataSou
             cell = CharacterTableViewCell(style: .Default, reuseIdentifier: CharacterTableViewCell.reuseIdentifier())
         }
         
-        cell?.characterImageView.setImageWithUrlPath(charactersArray[indexPath.row].thumbnailImage?.urlPath)
+        cell?.characterImageView.setImageWithUrlPath(charactersArray[indexPath.row].thumbnailImage?.downloadURL)
+        cell?.nameLabel.text = charactersArray[indexPath.row].name
         
         return cell!
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if !canLoadMoreCharacters() || (charactersArray.count - indexPath.row) > 10  {
+        if canLoadMoreCharacters() == false || (charactersArray.count - indexPath.row) > 10 || indexPath.row == 0  {
             return
         }
         

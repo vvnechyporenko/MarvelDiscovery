@@ -13,9 +13,9 @@ class CharactersListView: BaseView {
     let tableView = BaseTableView()
     
     override func setUpDefaults() {
+        tableView.setUpRefreshControls()
         addSubview(tableView)
         backgroundColor = MDColors.charactersListBackgroundColor()
-        tableView.contentInset = UIEdgeInsets(top: navigationBarHeight(), left: 0, bottom: 0, right: 0)
     }
     
     override func setUpConstraints() {
@@ -28,15 +28,15 @@ class CharactersListView: BaseView {
     }
     
     func animateBottomLoading() {
-        tableView.contentInset = UIEdgeInsets(top: navigationBarHeight(), left: 0, bottom: tableView.topRefreshControl.frame.size.height, right: 0)
-        tableView.bottomActivityIndicator?.hidden = false
-        tableView.bottomActivityIndicator?.startAnimating()
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableView.topRefreshControl.frame.size.height, right: 0)
+        tableView.bottomActivityIndicator.hidden = false
+        tableView.bottomActivityIndicator.startAnimating()
     }
     
     func endLoading() {
         tableView.topRefreshControl.endRefreshing()
-        tableView.bottomActivityIndicator?.stopAnimating()
-        tableView.bottomActivityIndicator?.hidden = true
-        tableView.contentInset = UIEdgeInsets(top: navigationBarHeight(), left: 0, bottom: 0, right: 0)
+        tableView.bottomActivityIndicator.stopAnimating()
+        tableView.bottomActivityIndicator.hidden = true
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
