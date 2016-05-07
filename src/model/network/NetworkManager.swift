@@ -49,7 +49,9 @@ extension NetworkManager {
         params["apikey"] = kPublicKey
         params["hash"] = "\(String(Int((NSDate().timeIntervalSince1970))))\(kPrivateKey)\(kPublicKey)".md5
         
-        request(method, kServerURL + path, parameters: params)
+        let requestString = path.hasPrefix("http") ? path : kServerURL + path
+        
+        request(method, requestString, parameters: params)
         .response { (request, responce, data, error) -> Void in
             
             guard let completion = completion else {

@@ -13,6 +13,7 @@ class CharacterDetailsView: BaseView {
     
     override func setUpDefaults() {
         super.setUpDefaults()
+        backgroundColor = MDColors.charactersListBackgroundColor()
         addSubview(tableView)
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension

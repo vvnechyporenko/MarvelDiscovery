@@ -17,6 +17,7 @@ extension ContentSummary {
     @NSManaged var resourceURI: String?
     @NSManaged var name: String?
     @NSManaged var type: String?
+    @NSManaged var imageURL: String?
     @NSManaged var holder: NSManagedObject?
 
 }

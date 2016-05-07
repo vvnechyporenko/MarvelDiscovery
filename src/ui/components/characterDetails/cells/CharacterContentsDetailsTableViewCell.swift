@@ -9,22 +9,25 @@
 import UIKit
 
 class CharacterContentsDetailsTableViewCell: CharacterBaseDetailsTableViewCell {
-//    let tableView = EasyTableView(frame: CGRect(elementsOffset, elementsOffset, screenWidth()-elementsOffset*2, 175), ofWidth: 114)
-    
-    let tableView = EasyTableView(frame: CGRectZero, ofWidth: 114)
+    let tableView = EasyTableView(frame: CGRect(x: 12, y: 30, width: screenWidth()-12*2, height: 210), ofWidth: 114)
+    let tableManager = CharacterContentsTableViewManager()
     
     override func setUpDefaults() {
         super.setUpDefaults()
         
-        addSubview(tableView)
+        containerView.addSubview(tableView)
         tableView.tableView.separatorColor = .clearColor()
         tableView.backgroundColor = .clearColor()
         tableView.tableView.backgroundColor = .clearColor()
+        tableView.clipsToBounds = false
+        tableView.tableView.clipsToBounds = false
+        
+        tableView.delegate = tableManager
+        tableManager.contentTableView = tableView
     }
     
     override func setUpConstraints() {
         super.setUpConstraints()
-        
-        tableView.autoSetDimension(.Height, toSize: 175)
+        titleLabel.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 200)
     }
 }

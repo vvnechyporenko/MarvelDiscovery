@@ -11,7 +11,6 @@ import UIKit
 class CharacterContentsTableViewManager: NSObject {
     var summariesArray = [ContentSummary]() {
         didSet {
-            print(summariesArray)
             contentTableView?.reload()
         }
     }
@@ -22,7 +21,6 @@ class CharacterContentsTableViewManager: NSObject {
 
 extension CharacterContentsTableViewManager : EasyTableViewDelegate {
     func easyTableView(easyTableView: EasyTableView!, numberOfRowsInSection section: Int) -> Int {
-        contentTableView = easyTableView
         return summariesArray.count
     }
     
@@ -31,13 +29,17 @@ extension CharacterContentsTableViewManager : EasyTableViewDelegate {
     }
     
     func easyTableView(easyTableView: EasyTableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell = easyTableView.tableView.dequeueReusableCellWithIdentifier(CharacterContentsDetailsTableViewCell.reuseIdentifier()) as? ContentsTableViewCell
+        let reuseIdentifier = "ContentsTableViewCellReuseIdentifier"
+        var cell = easyTableView.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as? ContentsTableViewCell
         if cell == nil {
-            cell = ContentsTableViewCell(style: .Default, reuseIdentifier: ContentsTableViewCell.reuseIdentifier())
+            cell = ContentsTableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         }
         
-        cell?.contentImageView.setImageWithUrlPath(summariesArray[indexPath.row].resourceURI)
+        summariesArray[indexPath.row].imageURL {[weak cell] (imageURL) in
+            cell?.contentImageView.setImageWithUrlPath(imageURL)
+        }
         cell?.contentNameLabel.text = summariesArray[indexPath.row].name
+        cell?.contentNameLabel.sizeToFit()
         
         return cell!
     }

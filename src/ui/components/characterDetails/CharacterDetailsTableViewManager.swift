@@ -95,48 +95,62 @@ extension CharacterDetailsTableViewManager : UITableViewDataSource {
         
         switch modelObject.type {
         case .Image:
-            let cell = CharacterImageDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterImageDetailsTableViewCell.reuseIdentifier())
-            
-            cell.titleLabel.text = modelObject.title
-            cell.characterImageView.setImageWithUrlPath(modelObject.dataObject as? String)
-            
-            return cell
-        case .Text:
-            let cell = CharacterTextDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterTextDetailsTableViewCell.reuseIdentifier())
-            
-            cell.titleLabel.text = modelObject.title
-            cell.infoLabel.text = modelObject.dataObject as? String
-            
-            return cell
-        case .ContentsTableView:
-            let cell = CharacterContentsDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterContentsDetailsTableViewCell.reuseIdentifier())
-            
-            cell.titleLabel.text = modelObject.title
-            let tableManager = CharacterContentsTableViewManager()
-            tableManager.contentTableView = cell.tableView
-            if let summaries = modelObject.dataObject  as? [ContentSummary] {
-                tableManager.summariesArray = summaries
+            var cell = tableView.dequeueReusableCellWithIdentifier(CharacterImageDetailsTableViewCell.reuseIdentifier()) as? CharacterImageDetailsTableViewCell
+            if cell == nil {
+                cell = CharacterImageDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterImageDetailsTableViewCell.reuseIdentifier(indexPath))
+                
+                cell?.titleLabel.text = modelObject.title.uppercaseString
+                cell?.characterImageView.setImageWithUrlPath(modelObject.dataObject as? String)
             }
-            cell.tableView.delegate = tableManager
             
-            return cell
+            return cell!
+        case .Text:
+            var cell = tableView.dequeueReusableCellWithIdentifier(CharacterTextDetailsTableViewCell.reuseIdentifier()) as? CharacterTextDetailsTableViewCell
+            if cell == nil {
+                cell = CharacterTextDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterTextDetailsTableViewCell.reuseIdentifier(indexPath))
+                
+                cell?.titleLabel.text = modelObject.title.uppercaseString
+                cell?.infoLabel.text = modelObject.dataObject as? String
+            }
+            
+            return cell!
+        case .ContentsTableView:
+            var cell = tableView.dequeueReusableCellWithIdentifier(CharacterContentsDetailsTableViewCell.reuseIdentifier(indexPath)) as? CharacterContentsDetailsTableViewCell
+            if cell == nil {
+                cell = CharacterContentsDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterContentsDetailsTableViewCell.reuseIdentifier(indexPath))
+            }
+            
+            cell?.titleLabel.text = modelObject.title.uppercaseString
+            if let summaries = modelObject.dataObject  as? [ContentSummary] {
+                cell?.tableManager.summariesArray = summaries
+            }
+            
+            return cell!
         case .Title:
-            let cell = CharacterBaseDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterBaseDetailsTableViewCell.reuseIdentifier())
-            cell.titleLabel.text = modelObject.title
-            cell.titleLabel.autoPinEdgeToSuperviewEdge(.Bottom, withInset: cell.elementsOffset)
-            return cell
+            var cell = tableView.dequeueReusableCellWithIdentifier(CharacterBaseDetailsTableViewCell.reuseIdentifier(indexPath)) as? CharacterBaseDetailsTableViewCell
+            if cell == nil {
+                cell = CharacterBaseDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterBaseDetailsTableViewCell.reuseIdentifier(indexPath))
+                
+                cell?.titleLabel.text = modelObject.title.uppercaseString
+                cell?.titleLabel.autoPinEdgeToSuperviewEdge(.Bottom, withInset: cell!.elementsOffset)
+            }
+            
+            return cell!
         case .Link:
             let reuseIdentifier = "CharacterLinkTableViewCell\(indexPath.row)"
-            let cell = UITableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
+            var cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier)
+            if cell == nil {
+                cell = UITableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
+                
+                cell?.textLabel?.text = modelObject.title
+                cell?.accessoryView = BaseImageView(image: R.image.icnCellDisclosure)
+                cell?.textLabel?.font = UIFont.systemFontOfSize(17)
+                cell?.textLabel?.textColor = .whiteColor()
+                cell?.selectionStyle = .None
+                cell?.backgroundColor = .clearColor()
+            }
             
-            cell.textLabel?.text = modelObject.title
-            cell.accessoryView = BaseImageView(image: R.image.icnCellDisclosure)
-            cell.textLabel?.font = UIFont.systemFontOfSize(17)
-            cell.textLabel?.textColor = .whiteColor()
-            cell.selectionStyle = .None
-            cell.backgroundColor = .clearColor()
-            
-            return cell
+            return cell!
         }
     }
     

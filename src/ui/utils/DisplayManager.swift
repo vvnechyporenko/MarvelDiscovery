@@ -146,16 +146,15 @@ extension DisplayManager {
             return
         }
         
-        if #available(iOS 9.0, *) {
-            
+//        if #available(iOS 9.0, *) {
             let svc = SFSafariViewController(URL: urlString)
             
             let navVC = UINavigationController(rootViewController: svc)
             navVC.navigationBarHidden = true
             
             navigationController.presentViewController(navVC, animated: true, completion: nil)
-        } else {
-            UIApplication.sharedApplication().openURL(urlString)
-        }
+//        } else {
+//            UIApplication.sharedApplication().openURL(urlString)
+//        }
     }
 }

@@ -13,8 +13,12 @@ class BaseTableViewCell: UITableViewCell {
     var indexPath : NSIndexPath?
     var containerView = UIView()
     
-    static func reuseIdentifier() -> String {
-        return "\(NSStringFromClass(self))ReuseIdentifier"
+    static func reuseIdentifier(indexPath : NSIndexPath? = nil) -> String {
+        let string = "\(NSStringFromClass(self))ReuseIdentifier"
+        if let indexPath = indexPath {
+            return string + "\(indexPath.section)\(indexPath.row)"
+        }
+        return string
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

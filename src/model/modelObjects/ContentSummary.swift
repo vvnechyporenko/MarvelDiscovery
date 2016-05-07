@@ -12,6 +12,19 @@ import CoreData
 
 class ContentSummary: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    func imageURL(complete : (imageURL : String?) -> Void) {
+        if let imageURL = imageURL {
+            complete(imageURL: imageURL)
+            return
+        }
+        guard let resourceURI = resourceURI else {
+            complete(imageURL: nil)
+            return
+        }
+        
+        NetworkManager.sharedInstance.getImageUrlForResourceURI(resourceURI) {[weak self] (imageURL) in
+            self?.imageURL = imageURL
+            complete(imageURL: imageURL)
+        }
+    }
 }

@@ -18,6 +18,7 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContentSummary" inverseName="holder" inverseEntity="ContentSummary" syncable="YES"/>
     </entity>
     <entity name="ContentSummary" representedClassName=".ContentSummary" syncable="YES">
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="resourceURI" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,9 +36,9 @@
     </entity>
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="WebURL" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="ThumbnailImage" positionX="-36" positionY="45" width="128" height="90"/>
         <element name="ContentsCharacter" positionX="-18" positionY="72" width="128" height="135"/>
-        <element name="ContentSummary" positionX="0" positionY="90" width="128" height="105"/>
+        <element name="ContentSummary" positionX="0" positionY="90" width="128" height="120"/>
+        <element name="ThumbnailImage" positionX="-36" positionY="45" width="128" height="90"/>
+        <element name="WebURL" positionX="-54" positionY="18" width="128" height="90"/>
     </elements>
 </model>

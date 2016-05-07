@@ -19,6 +19,7 @@ class CharactersTableViewManager: NSObject {
         didSet {
             if filterString != oldValue {
                 contentTableView?.animateLoading()
+                isDataLoading = false
                 loadCharactersWithFullReload(true)
             }
         }

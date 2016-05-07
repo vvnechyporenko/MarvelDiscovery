@@ -17,7 +17,7 @@ class CharacterBaseDetailsTableViewCell: BaseTableViewCell {
         addSubview(titleLabel)
         
         titleLabel.textColor = MDColors.redColor()
-        titleLabel.font = UIFont.boldSystemFontOfSize(15)
+        titleLabel.font = UIFont.boldSystemFontOfSize(12)
     }
     
     override func setUpConstraints() {

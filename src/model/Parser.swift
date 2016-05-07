@@ -20,12 +20,10 @@ class Parser: AnyObject {
     }
     
     func parseCharacterJSON(json : JSON) -> Character {
+        let character = Character.MR_createEntity()
+        
         guard let identifier = json["id"].number else {
-            return Character.MR_createEntity()
-        }
-        var character = Character.MR_findFirstByAttribute("identifier", withValue: identifier)
-        if character == nil {
-            character = Character.MR_createEntity()
+            return character
         }
         
         character.identifier = identifier
@@ -56,15 +54,17 @@ class Parser: AnyObject {
         }
     }
     
-    func parseThumbnailJSON(json : JSON?, forCharacter character : Character) {
+    func parseThumbnailJSON(json : JSON?, forCharacter character : Character?) -> ThumbnailImage? {
         guard let json = json else {
-            return
+            return nil
         }
         
         let thumbnail = ThumbnailImage.MR_createEntity()
         thumbnail.imageExtension = json["extension"].string
         thumbnail.urlPath = json["path"].string
         thumbnail.character = character
+        
+        return thumbnail
     }
     
     func parseContentsJSON(json : JSON?, type : ContentsCharacterType?, forCharacter character : Character) {
@@ -90,5 +90,39 @@ class Parser: AnyObject {
             summary.resourceURI = element["resourceURI"].string
             summary.type = element["type"].string
         }
+    }
+    
+    func parseImageURLFromResourceJSON(json : JSON?) -> String? {
+        guard let json = json else {
+            return nil
+        }
+        
+        return parseThumbnailJSON(findValueForKey("thumbnail", inJSON: json), forCharacter: nil)?.downloadURL
+    }
+    
+    func findValueForKey(key : String, inJSON json : JSON) -> JSON? {
+        
+        if let _ = json[key].dictionary {
+            return json[key]
+        }
+        
+        if let dictionary = json.dictionary {
+            let array = Array(dictionary.keys)
+            for keyElement in array {
+                if let value = findValueForKey(key, inJSON: json[keyElement]) {
+                    return value
+                }
+            }
+        }
+        
+        if let array = json.array {
+            for element in array {
+                if let value = findValueForKey(key, inJSON: element) {
+                    return value
+                }
+            }
+        }
+        
+        return nil
     }
 }
