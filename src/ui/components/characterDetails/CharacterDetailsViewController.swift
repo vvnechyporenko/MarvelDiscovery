@@ -22,6 +22,7 @@ class CharacterDetailsViewController: BaseViewController {
         layoutContentView(contentView)
         contentView.tableView.delegate = tableManager
         contentView.tableView.dataSource = tableManager
+        contentView.titleLabel.text = character?.name
         
         //Set up navigation bar
         navigationController?.navigationBar.makeTransparent()

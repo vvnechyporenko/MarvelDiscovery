@@ -81,6 +81,19 @@ class BaseTableView: UITableView {
         }
     }
     
+    func setBackgroundViewWithImage(image : UIImage) {
+        let imageView = BaseImageView(image: image)
+        imageView.contentMode = .ScaleAspectFill
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let visualEffectsView = UIVisualEffectView(effect: blurEffect)
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()))
+        imageView.frame = view.frame
+        visualEffectsView.frame = view.frame
+        view.addSubviews(imageView, visualEffectsView)
+        backgroundView = view
+    }
+    
     @objc private func tableViewTopRefreshControlActivated() {
         refreshDelegate?.tableView(self, asksReloadWithControl: topRefreshControl)
     }

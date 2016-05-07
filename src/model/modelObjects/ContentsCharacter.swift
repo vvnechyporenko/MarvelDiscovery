@@ -11,21 +11,21 @@ import CoreData
 
 enum ContentsCharacterType : Int {
     case Comics = 0
-    case Stories = 1
-    case Events = 2
-    case Series = 3
+    case Series = 1
+    case Stories = 2
+    case Events = 3
     case None = 4
     
     init?(string: String) {
         switch string.lowercaseString {
         case "comics":
-            self.init(rawValue:0)
+            self.init(rawValue:ContentsCharacterType.Comics.rawValue)
         case "stories":
-            self.init(rawValue:1)
+            self.init(rawValue:ContentsCharacterType.Series.rawValue)
         case "events":
-            self.init(rawValue:2)
+            self.init(rawValue:ContentsCharacterType.Stories.rawValue)
         case "series":
-            self.init(rawValue:3)
+            self.init(rawValue:ContentsCharacterType.Events.rawValue)
         default:
             return nil
         }

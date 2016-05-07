@@ -50,7 +50,13 @@ class CharacterDetailsTableViewManager: NSObject {
             cellModelsArray.append(CharacterDetailsCellModel(aType: .Text, aTitle: "DESCRIPTION".localized(), aDataObject: info))
         }
         if let contentsArray = character?.containedLists?.allObjects as? [ContentsCharacter] {
-            for contents in contentsArray {
+            let sortedContentsArray = contentsArray.sort({ (first, second) -> Bool in
+                guard let firstType = first.type?.integerValue, let secondType = second.type?.integerValue else {
+                    return false
+                }
+                return firstType < secondType
+            })
+            for contents in sortedContentsArray {
                 if let type = contents.type?.integerValue, let summaries = contents.items?.allObjects as? [ContentSummary] {
                     if summaries.count > 0 {
                         cellModelsArray.append(CharacterDetailsCellModel(aType: .ContentsTableView, aTitle: ContentsCharacterType(rawValue: type)!.toString(), aDataObject: summaries))
@@ -77,7 +83,12 @@ class CharacterDetailsTableViewManager: NSObject {
 
 extension CharacterDetailsTableViewManager : UITableViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        guard let topImageCell = contentTableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? CharacterImageDetailsTableViewCell else {
+            return
+        }
         
+        let offset = scrollView.contentOffset.y < 0 ? scrollView.contentOffset.y : 0
+        topImageCell.constraintTopImageView?.constant = offset
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -100,7 +111,12 @@ extension CharacterDetailsTableViewManager : UITableViewDataSource {
                 cell = CharacterImageDetailsTableViewCell(style: .Default, reuseIdentifier: CharacterImageDetailsTableViewCell.reuseIdentifier(indexPath))
                 
                 cell?.titleLabel.text = modelObject.title.uppercaseString
-                cell?.characterImageView.setImageWithUrlPath(modelObject.dataObject as? String)
+                cell?.characterImageView.setImageWithUrlPath(modelObject.dataObject as? String, placeholderImage: nil,
+                                                             completed: {[weak self] (downloadedImage, error) in
+                    if let image = downloadedImage {
+                        self?.contentTableView?.setBackgroundViewWithImage(image)
+                    }
+                })
             }
             
             return cell!

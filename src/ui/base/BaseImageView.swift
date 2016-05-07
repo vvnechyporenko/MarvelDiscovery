@@ -79,7 +79,8 @@ extension UIImageView {
                         if let completed = completed {
                             completed(downloadedImage: image, error: error)
                         }
-                    })                }
+                    })
+                }
             }
         }
         else {
