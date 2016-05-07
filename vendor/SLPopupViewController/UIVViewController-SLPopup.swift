@@ -98,7 +98,7 @@ extension UIViewController {
 //        overlayView.addSubview(popupView)
         sourceView.addSubview(popupView)
         
-        dismissButton.addTarget(self, action: "btnDismissViewControllerWithAnimation:", forControlEvents: .TouchUpInside)
+        dismissButton.addTarget(self, action: #selector(UIViewController.btnDismissViewControllerWithAnimation(_:)), forControlEvents: .TouchUpInside)
         switch animationType {
         case .BottomTop, .BottomBottom,.TopTop,.TopBottom, .LeftLeft, .LeftRight,.RightLeft, .RightRight:
             dismissButton.tag = animationType.rawValue

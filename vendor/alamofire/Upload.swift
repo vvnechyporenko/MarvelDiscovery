@@ -1,6 +1,6 @@
 // Upload.swift
 //
-// Copyright (c) 2014–2015 Alamofire Software Foundation (http://alamofire.org/)
+// Copyright (c) 2014–2016 Alamofire Software Foundation (http://alamofire.org/)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -279,7 +279,6 @@ extension Manager {
         encodingMemoryThreshold: UInt64 = Manager.MultipartFormDataEncodingMemoryThreshold,
         encodingCompletion: (MultipartFormDataEncodingResult -> Void)?)
     {
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let formData = MultipartFormData()
             multipartFormData(formData)
@@ -301,14 +300,12 @@ extension Manager {
                     dispatch_async(dispatch_get_main_queue()) {
                         encodingCompletion?(encodingResult)
                     }
-                }
-                catch {
+                } catch {
                     dispatch_async(dispatch_get_main_queue()) {
-                        encodingCompletion?(MultipartFormDataEncodingResult.Failure(error as NSError))
+                        encodingCompletion?(.Failure(error as NSError))
                     }
                 }
-            }
-            else {
+            } else {
                 let fileManager = NSFileManager.defaultManager()
                 let tempDirectoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory())
                 let directoryURL = tempDirectoryURL.URLByAppendingPathComponent("com.alamofire.manager/multipart.form.data")
@@ -329,7 +326,7 @@ extension Manager {
                     }
                 } catch {
                     dispatch_async(dispatch_get_main_queue()) {
-                        encodingCompletion?(MultipartFormDataEncodingResult.Failure(error as NSError))
+                        encodingCompletion?(.Failure(error as NSError))
                     }
                 }
             }
@@ -362,6 +359,8 @@ extension Request {
             totalBytesSent: Int64,
             totalBytesExpectedToSend: Int64)
         {
+            if initialResponseTime == nil { initialResponseTime = CFAbsoluteTimeGetCurrent() }
+
             if let taskDidSendBodyData = taskDidSendBodyData {
                 taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesExpectedToSend)
             } else {

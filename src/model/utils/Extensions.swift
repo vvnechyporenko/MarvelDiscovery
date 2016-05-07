@@ -446,18 +446,6 @@ extension UIView {
     }
 }
 
-// MARK: Force touch capability
-
-extension UIView {
-    var forceTouchAvailable : Bool {
-        if #available(iOS 9.0, *) {
-            return traitCollection.forceTouchCapability == .Available
-        } else {
-            return false
-        }
-    }
-}
-
 // MARK: ActivityIndicator extension
 
 extension UIView {
