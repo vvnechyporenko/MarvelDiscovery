@@ -43,6 +43,10 @@ class MDColors : AnyObject {
     static func cellSeparatorColor() -> UIColor {
         return UIColor.normalizedColorWithRed(71, green: 72, blue: 73)
     }
+    
+    static func grayTextColor() -> UIColor {
+        return UIColor.normalizedColorWithRed(84, green: 87, blue: 89)
+    }
 }
 
 // MARK: hash

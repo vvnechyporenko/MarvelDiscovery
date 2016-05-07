@@ -26,6 +26,8 @@ class ContentsTableViewCell: UITableViewCell {
         contentNameLabel.textAlignment = .Center
         contentNameLabel.font = UIFont.systemFontOfSize(13)
         contentNameLabel.numberOfLines = 2
+        
+        selectionStyle = .None
     }
     
     required init?(coder aDecoder: NSCoder) {

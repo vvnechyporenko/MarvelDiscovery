@@ -37,6 +37,10 @@
 		04215EC91CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */; };
 		042B83461CCFB9440090550C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B83451CCFB9440090550C /* Constants.swift */; };
 		04505DA81CDDE91800A5256F /* NetworkContentsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DA71CDDE91800A5256F /* NetworkContentsRequests.swift */; };
+		04505DAF1CDE862800A5256F /* ItemsSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DAE1CDE862800A5256F /* ItemsSummaryViewController.swift */; };
+		04505DB11CDE863A00A5256F /* ItemsSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DB01CDE863A00A5256F /* ItemsSummaryView.swift */; };
+		04505DB31CDE945700A5256F /* ItemCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DB21CDE945700A5256F /* ItemCoverView.swift */; };
+		04505DB61CDE991F00A5256F /* UIVViewController-SLPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DB51CDE991F00A5256F /* UIVViewController-SLPopup.swift */; };
 		0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493880E1CB64ECD007460C6 /* EasyTableView.m */; };
 		04C4FA101CA17B71007CAE13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */; };
 		04C4FA131CA17B71007CAE13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F91C1CA17B71007CAE13 /* Assets.xcassets */; };
@@ -164,6 +168,10 @@
 		04215EC81CDC2D4D0005777D /* CharacterDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		042B83451CCFB9440090550C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04505DA71CDDE91800A5256F /* NetworkContentsRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkContentsRequests.swift; sourceTree = "<group>"; };
+		04505DAE1CDE862800A5256F /* ItemsSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsSummaryViewController.swift; sourceTree = "<group>"; };
+		04505DB01CDE863A00A5256F /* ItemsSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsSummaryView.swift; sourceTree = "<group>"; };
+		04505DB21CDE945700A5256F /* ItemCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCoverView.swift; sourceTree = "<group>"; };
+		04505DB51CDE991F00A5256F /* UIVViewController-SLPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVViewController-SLPopup.swift"; sourceTree = "<group>"; };
 		0493880D1CB64ECD007460C6 /* EasyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTableView.h; sourceTree = "<group>"; };
 		0493880E1CB64ECD007460C6 /* EasyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTableView.m; sourceTree = "<group>"; };
 		04C4F8FA1CA179BB007CAE13 /* MarvelDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,6 +395,24 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		04505DAD1CDE860200A5256F /* summaryViewer */ = {
+			isa = PBXGroup;
+			children = (
+				04505DAE1CDE862800A5256F /* ItemsSummaryViewController.swift */,
+				04505DB01CDE863A00A5256F /* ItemsSummaryView.swift */,
+				04505DB21CDE945700A5256F /* ItemCoverView.swift */,
+			);
+			path = summaryViewer;
+			sourceTree = "<group>";
+		};
+		04505DB41CDE991F00A5256F /* SLPopupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04505DB51CDE991F00A5256F /* UIVViewController-SLPopup.swift */,
+			);
+			path = SLPopupViewController;
+			sourceTree = "<group>";
+		};
 		0493880C1CB64ECD007460C6 /* easytableview */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +547,7 @@
 		04C4F9661CA17B71007CAE13 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				04505DAD1CDE860200A5256F /* summaryViewer */,
 				041F0F671CD4DD960087AC98 /* characterDetails */,
 				041F0F681CD4DD960087AC98 /* characters */,
 			);
@@ -541,6 +568,7 @@
 		04C4F96E1CA17B71007CAE13 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				04505DB41CDE991F00A5256F /* SLPopupViewController */,
 				0493880C1CB64ECD007460C6 /* easytableview */,
 				04C4F96F1CA17B71007CAE13 /* alamofire */,
 				04C4F9811CA17B71007CAE13 /* JGProgressHUD */,
@@ -908,16 +936,19 @@
 				04C4FA691CA17B71007CAE13 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				04C4FA7D1CA17B71007CAE13 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				04C4FA3B1CA17B71007CAE13 /* NetworkManager.swift in Sources */,
+				04505DB31CDE945700A5256F /* ItemCoverView.swift in Sources */,
 				04C4FA671CA17B71007CAE13 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
 				04C4FA5C1CA17B71007CAE13 /* ServerTrustPolicy.swift in Sources */,
 				04C4FA641CA17B71007CAE13 /* JGProgressHUDErrorIndicatorView.m in Sources */,
 				04C4FA4C1CA17B71007CAE13 /* BaseViewController.swift in Sources */,
 				04C4FA181CA17B71007CAE13 /* DataManager.swift in Sources */,
+				04505DB11CDE863A00A5256F /* ItemsSummaryView.swift in Sources */,
 				04C4FA4F1CA17B71007CAE13 /* MDFonts.swift in Sources */,
 				04C4FA581CA17B71007CAE13 /* Request.swift in Sources */,
 				04C4FA6E1CA17B71007CAE13 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				04C4FA711CA17B71007CAE13 /* NSObject+MagicalDataImport.m in Sources */,
 				04C4FA651CA17B71007CAE13 /* JGProgressHUDFadeAnimation.m in Sources */,
+				04505DB61CDE991F00A5256F /* UIVViewController-SLPopup.swift in Sources */,
 				04C4FA591CA17B71007CAE13 /* Response.swift in Sources */,
 				04215EC41CDC2C060005777D /* CharacterDetailsViewController.swift in Sources */,
 				04215EB91CDBF9370005777D /* ContentsCharacter+CoreDataProperties.swift in Sources */,
@@ -937,6 +968,7 @@
 				04C4FA9B1CA17B71007CAE13 /* UIImageView+WebCache.m in Sources */,
 				04C4FA981CA17B71007CAE13 /* UIImage+MultiFormat.m in Sources */,
 				04C4FA481CA17B71007CAE13 /* BaseNavigationController.swift in Sources */,
+				04505DAF1CDE862800A5256F /* ItemsSummaryViewController.swift in Sources */,
 				04C4FA841CA17B71007CAE13 /* MagicalRecord+Options.m in Sources */,
 				04C4FA151CA17B71007CAE13 /* AppDelegate.swift in Sources */,
 				04C4FA4E1CA17B71007CAE13 /* DisplayManager.swift in Sources */,

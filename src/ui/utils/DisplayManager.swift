@@ -127,7 +127,10 @@ extension DisplayManager {
     }
     
     func showContentSummaryInArray(array : [ContentSummary], forIndex index : Int) {
-        
+        let itemsController = ItemsSummaryViewController()
+        itemsController.summaryArray = array
+        itemsController.currentIndex = index
+        navigationController.presentpopupViewController(itemsController, animationType: SLpopupViewAnimationType.Fade) { }
     }
 }
 
