@@ -15,42 +15,10 @@ let kEnEmptyErorCode = 0
 //errors 600-610 - Authorization errors
 
 enum ErrorCodeType : Int {
-    case Facebook = -2
-    case VKError = -1
-    case Cancel = -3
-    case LoginFormatIncorrect = 1
-    case StatisticsLocked = 20
-    case PasswordFormatIncorrect = 105
-    case EmailFormatIncorrect = 3
-    case DomenFormatIncorrect = 10
-    case DomenEmpty = 11
-    case Passwordempty = 4
-    case Emailempty = 5
-    case FacebookLoginCanceled = 6
-    case PasswordsNotIdentical = 7
-    case NoUserWithIDFound = 404
-    case UserIsNotFriend = 435
-    case FriendRequestAlreadySend = 433
-    case EmailOccupied = 104
     case UnknownError = 500
-    case InvalidEmailPassword = 107
-    case OldPasswordIncorrect = 403
-    case Unauthorized = 401
-    case DeviceTokenAlreadyRegistered = 409
-    case UserDeviceNotConnected = 424
+    case Unauthorized = 409
+    case NotFound     = 404
     case InternetNotReachable = 999
-    
-    case AuthSuccess = 600
-    case AuthAttemptsOverflow = 601
-    case AuthIncorrectLoginPassword = 602
-    case AuthBlackList = 603
-    case AuthIpBlock = 604
-    case AuthServerError = 605
-    case AuthJsonError = 606
-    case AuthUserAdminBlocked = 607
-    case AuthNewuserNotActivated = 608
-    case AuthBruteForce = 609
-    case AuthEmailNotConfirmed = 610
 }
 
 extension NSError {

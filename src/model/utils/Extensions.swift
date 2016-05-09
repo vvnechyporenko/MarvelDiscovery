@@ -395,7 +395,7 @@ extension UIView {
 // MARK: Scroll to top
 
 extension UIScrollView {
-    func scrollToTop() {
+    override func scrollToTop() {
         scrollToTop(true)
     }
     
@@ -404,7 +404,7 @@ extension UIScrollView {
     }
 }
 
-extension BaseView {
+extension UIView {
     func scrollToTop() {
         //override in subclasses if needed
     }
@@ -546,26 +546,6 @@ extension String  {
 // MARK: Date extension
 
 extension NSDate {
-    func displayString() -> String {
-        let stringDate = DisplayManager.sharedInstance.dateFormatter.stringFromDate(self)
-        var components = stringDate.componentsSeparatedByString(" ")
-        
-        var day = components[2]
-        if String(Array(day.characters)[0]) == "0" {
-            day = String(day.characters.dropFirst())
-        }
-        
-        var time = components[3]
-        if String(Array(time.characters)[0]) == "0" {
-            time = String(time.characters.dropFirst())
-        }
-        
-        let dayTH = "\(day)\(daySuffix(self)),"
-        let outputString = "\(components[0]) \(components[1]) \(dayTH) \(time) \(components[4])"
-        
-        return outputString.uppercaseString
-    }
-    
     func daySuffix(date: NSDate) -> String {
         let calendar = NSCalendar.currentCalendar()
         let dayOfMonth = calendar.component(.Day, fromDate: date)

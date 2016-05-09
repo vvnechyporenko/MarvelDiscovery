@@ -34,7 +34,7 @@ class CharacterDetailsTableViewManager: NSObject {
             generateTableViewModel()
         }
     }
-    private var cellModelsArray = [CharacterDetailsCellModel]()
+    var cellModelsArray = [CharacterDetailsCellModel]()
     private var contentTableView : BaseTableView?
     
     private func generateTableViewModel() {

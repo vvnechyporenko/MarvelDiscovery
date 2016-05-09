@@ -8,8 +8,6 @@
 
 import Foundation
 
-let kCharactersLimitCount = 40
-
 extension NetworkManager {
     func getCharactersWithOffset(offset : Int,
                               filterName : String? = nil,
@@ -19,7 +17,7 @@ extension NetworkManager {
         if let filterName = filterName {
             params["nameStartsWith"] = filterName
         }
-        params["limit"] = kCharactersLimitCount
+        params["limit"] = Constants.CharactersRequestLimitCount
         if offset > 0 {
             params["offset"] = offset
         }

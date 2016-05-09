@@ -11,8 +11,6 @@ import Foundation
 class NetworkManager : AnyObject {
     static let sharedInstance = NetworkManager()
     private let kServerURL = "https://gateway.marvel.com/v1/public/" //
-    private let kPrivateKey = "ff1dc4123d5d810f41305b7356ae6f40018e78ef"
-    private let kPublicKey = "7316de942dede4504e98dc9dbd7bee5f"
     
     var isInternetReachable : Bool {
         get {
@@ -46,8 +44,8 @@ extension NetworkManager {
         var params = params == nil ? [String : AnyObject]() : params!
         
         params["ts"] = String(Int((NSDate().timeIntervalSince1970)))
-        params["apikey"] = kPublicKey
-        params["hash"] = "\(String(Int((NSDate().timeIntervalSince1970))))\(kPrivateKey)\(kPublicKey)".md5
+        params["apikey"] = Constants.ApiPublicKey
+        params["hash"] = "\(String(Int((NSDate().timeIntervalSince1970))))\(Constants.ApiPrivateKey)\(Constants.ApiPublicKey)".md5
         
         let requestString = path.hasPrefix("http") ? path : kServerURL + path
         
@@ -64,8 +62,8 @@ extension NetworkManager {
                 return
             }
             
-//            let responseString = String(data: data!, encoding: NSUTF8StringEncoding)
-//            dbgLog(responseString)
+            let responseString = String(data: data!, encoding: NSUTF8StringEncoding)
+            dbgLog(responseString)
             
             guard let data = data else {
                 completion(JSON: nil, error: NSError.defaultError())

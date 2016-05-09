@@ -23,9 +23,7 @@ extension UIViewController {
     }
     
     func showError(error : NSError) {
-        if error.code != ErrorCodeType.FacebookLoginCanceled.rawValue && error.code != ErrorCodeType.Cancel.rawValue {
-            showAlertWithTitle("Ошибка".localized(), message : error.localizedDescription)
-        }
+        showAlertWithTitle("Ошибка".localized(), message : error.localizedDescription)
     }
     
     func removeAllObservers() {
