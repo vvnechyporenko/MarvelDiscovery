@@ -45,11 +45,15 @@ class CharactersListViewController: BaseViewController {
         navigationController?.navigationBar.setBackgroundImage(MDColors.blackColor().toImage(), forBarMetrics: .Default)
         navigationController?.navigationBar.translucent = false
         searchBar.hidden = false
+        if searchBar.alpha == 1 {
+            navigationItem.titleView?.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         navigationController?.navigationBar.bringSubviewToFront(searchBar)
+        navigationItem.titleView?.hidden = false
     }
     
     private func setUpRightBarButtonItem() {

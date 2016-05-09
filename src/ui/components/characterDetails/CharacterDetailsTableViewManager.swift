@@ -67,7 +67,13 @@ class CharacterDetailsTableViewManager: NSObject {
         if let linksArray = character?.webURLs?.allObjects as? [WebURL] {
             if linksArray.count > 0 {
                 cellModelsArray.append(CharacterDetailsCellModel(aType: .Title, aTitle: "RELATED LINKS".localized(), aDataObject: linksArray))
-                for link in linksArray {
+                let sortedLinksArray = linksArray.sort({ (link1, link2) -> Bool in
+                    if let name1 = link1.type, let name2 = link2.type {
+                        return name1 < name2
+                    }
+                    return false
+                })
+                for link in sortedLinksArray {
                     if let type = link.type {
                         cellModelsArray.append((CharacterDetailsCellModel(aType: .Link, aTitle: type.capitalizedString, aDataObject: link)))
                     }

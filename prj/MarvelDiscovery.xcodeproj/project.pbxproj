@@ -58,6 +58,7 @@
 		04505DD71CDEA1A200A5256F /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DC61CDEA1A200A5256F /* Timeline.swift */; };
 		04505DD81CDEA1A200A5256F /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DC71CDEA1A200A5256F /* Upload.swift */; };
 		04505DD91CDEA1A200A5256F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DC81CDEA1A200A5256F /* Validation.swift */; };
+		04505DE11CDF72F300A5256F /* MarvelDiscoveryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04505DE01CDF72F300A5256F /* MarvelDiscoveryUITests.swift */; };
 		0493880F1CB64ECD007460C6 /* EasyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493880E1CB64ECD007460C6 /* EasyTableView.m */; };
 		04C4FA101CA17B71007CAE13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */; };
 		04C4FA131CA17B71007CAE13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C4F91C1CA17B71007CAE13 /* Assets.xcassets */; };
@@ -139,6 +140,16 @@
 		04C4FA9C1CA17B71007CAE13 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C4FA0A1CA17B71007CAE13 /* UIView+WebCacheOperation.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		04505DE31CDF72F300A5256F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C4F8F21CA179BB007CAE13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04C4F8F91CA179BB007CAE13;
+			remoteInfo = MarvelDiscovery;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		040CF99A1CDC86050092A84E /* CharactersSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersSearchView.swift; sourceTree = "<group>"; };
 		040CF99C1CDC86E00092A84E /* CharactersTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersTableViewManager.swift; sourceTree = "<group>"; };
@@ -193,6 +204,9 @@
 		04505DC61CDEA1A200A5256F /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		04505DC71CDEA1A200A5256F /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		04505DC81CDEA1A200A5256F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		04505DDE1CDF72F200A5256F /* MarvelDiscoveryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelDiscoveryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04505DE01CDF72F300A5256F /* MarvelDiscoveryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDiscoveryUITests.swift; sourceTree = "<group>"; };
+		04505DE21CDF72F300A5256F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0493880D1CB64ECD007460C6 /* EasyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyTableView.h; sourceTree = "<group>"; };
 		0493880E1CB64ECD007460C6 /* EasyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyTableView.m; sourceTree = "<group>"; };
 		04C4F8FA1CA179BB007CAE13 /* MarvelDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +357,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04505DDB1CDF72F200A5256F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C4F8F71CA179BB007CAE13 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +440,15 @@
 			path = SLPopupViewController;
 			sourceTree = "<group>";
 		};
+		04505DDF1CDF72F300A5256F /* MarvelDiscoveryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04505DE01CDF72F300A5256F /* MarvelDiscoveryUITests.swift */,
+				04505DE21CDF72F300A5256F /* Info.plist */,
+			);
+			path = MarvelDiscoveryUITests;
+			sourceTree = "<group>";
+		};
 		0493880C1CB64ECD007460C6 /* easytableview */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +465,7 @@
 				04C4F91B1CA17B71007CAE13 /* res */,
 				04C4F91F1CA17B71007CAE13 /* src */,
 				04C4F96E1CA17B71007CAE13 /* vendor */,
+				04505DDF1CDF72F300A5256F /* MarvelDiscoveryUITests */,
 				04C4F8FB1CA179BB007CAE13 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -443,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				04C4F8FA1CA179BB007CAE13 /* MarvelDiscovery.app */,
+				04505DDE1CDF72F200A5256F /* MarvelDiscoveryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -813,6 +845,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04505DDD1CDF72F200A5256F /* MarvelDiscoveryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04505DE51CDF72F300A5256F /* Build configuration list for PBXNativeTarget "MarvelDiscoveryUITests" */;
+			buildPhases = (
+				04505DDA1CDF72F200A5256F /* Sources */,
+				04505DDB1CDF72F200A5256F /* Frameworks */,
+				04505DDC1CDF72F200A5256F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04505DE41CDF72F300A5256F /* PBXTargetDependency */,
+			);
+			name = MarvelDiscoveryUITests;
+			productName = MarvelDiscoveryUITests;
+			productReference = 04505DDE1CDF72F200A5256F /* MarvelDiscoveryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		04C4F8F91CA179BB007CAE13 /* MarvelDiscovery */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C4F90F1CA179BB007CAE13 /* Build configuration list for PBXNativeTarget "MarvelDiscovery" */;
@@ -837,10 +887,14 @@
 		04C4F8F21CA179BB007CAE13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = nominanza;
 				TargetAttributes = {
+					04505DDD1CDF72F200A5256F = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 04C4F8F91CA179BB007CAE13;
+					};
 					04C4F8F91CA179BB007CAE13 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 76R27ZWSYL;
@@ -861,11 +915,19 @@
 			projectRoot = "";
 			targets = (
 				04C4F8F91CA179BB007CAE13 /* MarvelDiscovery */,
+				04505DDD1CDF72F200A5256F /* MarvelDiscoveryUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04505DDC1CDF72F200A5256F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C4F8F81CA179BB007CAE13 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -896,6 +958,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04505DDA1CDF72F200A5256F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04505DE11CDF72F300A5256F /* MarvelDiscoveryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C4F8F61CA179BB007CAE13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1032,6 +1102,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		04505DE41CDF72F300A5256F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04C4F8F91CA179BB007CAE13 /* MarvelDiscovery */;
+			targetProxy = 04505DE31CDF72F300A5256F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		04C4F9131CA17B71007CAE13 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1044,6 +1122,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		04505DE61CDF72F300A5256F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = MarvelDiscoveryUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nominanza.MarvelDiscoveryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarvelDiscovery;
+			};
+			name = Debug;
+		};
+		04505DE71CDF72F300A5256F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = MarvelDiscoveryUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nominanza.MarvelDiscoveryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarvelDiscovery;
+			};
+			name = Release;
+		};
 		04C4F90D1CA179BB007CAE13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1132,6 +1238,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1155,6 +1262,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1168,6 +1276,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04505DE51CDF72F300A5256F /* Build configuration list for PBXNativeTarget "MarvelDiscoveryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04505DE61CDF72F300A5256F /* Debug */,
+				04505DE71CDF72F300A5256F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		04C4F8F51CA179BB007CAE13 /* Build configuration list for PBXProject "MarvelDiscovery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

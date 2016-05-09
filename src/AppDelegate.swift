@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        //To save time - disable animations for testing
+        if NSProcessInfo.processInfo().environment["animations"] == "0" {
+            UIView.setAnimationsEnabled(false)
+        }
+        
         //set up business logic defaults
         DataManager.sharedInstance
         
