@@ -11,4 +11,4 @@ Just clone the repo or download it in zip-file, Open the project in Xcode then t
 In case you want to change the project setup like Marvel API keys:
 
 Get your own keys from http://developer.marvel.com
-Inside src/Constants, change ApiPrivateKey and ApiPublicKey with your owen keys.
+Inside src/Constants, change ApiPrivateKey and ApiPublicKey with your own keys.
